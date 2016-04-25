@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6843DDE1-2DBF-4F12-8116-D235FC236BC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9BE184B2-4AAE-4496-A275-9643D84DD970}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{39DCF4F6-927E-4EA6-8E30-739F75602485}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb", "src\NoDb\NoDb.xproj", "{45C2E96A-7BC9-4454-96D4-19376BCBCE2F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb.Test", "test\NoDb.Test\NoDb.Test.xproj", "{C8724042-9A4A-47B5-BBA7-36BA5F67691A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F} = {6843DDE1-2DBF-4F12-8116-D235FC236BC2}
+		{C8724042-9A4A-47B5-BBA7-36BA5F67691A} = {39DCF4F6-927E-4EA6-8E30-739F75602485}
+	EndGlobalSection
+EndGlobal

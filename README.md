@@ -43,7 +43,7 @@ Files are stored on disk like this:
 
     appRoot/[nodb_storage]/projects/[projectid]/[type]/[key].json
 
-The primary classes are BasicCommands<T>, BasicQueries<T>, have those injected into your own repository class and use them to implement retrievsal and storage of your serializable types. The best example code is in my [SimpleContent.Storage.NoDb](https://github.com/joeaudette/cloudscribe.SimpleContent/tree/master/src/cloudscribe.SimpleContent.Storage.NoDb) project, you casn see how everything is wired up in the example.WebApp in that repository.
+The primary classes are [BasicCommands](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicCommands.cs) and [BasicQueries](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicQueries.cs). Have those injected into your own repository class and use them to implement retrieval and storage of your serializable types. The best example code is in my [SimpleContent.Storage.NoDb](https://github.com/joeaudette/cloudscribe.SimpleContent/tree/master/src/cloudscribe.SimpleContent.Storage.NoDb) project, you can see how everything is wired up in the example.WebApp in that repository.
 
 
 ## Installation

@@ -1,19 +1,19 @@
 # NoDb - a "no database" file system storage for .NET Core/ASP.NET Core
 
-I named the project NoDb in a nod to the NoSql movement, which uses document databases rather than the more traditional, relation SQL databases. Not using a database at all seems to me taking the idea one step  further than NoSql. Myself, I think relational/SQL databases, NoSql document databases, and file system storage such as NoDb all have their places, according to the needs of the project. I think one size does not fit all and you should think deeply about the goals of your project and choose wisely.
+I named the project NoDb in a nod to the NoSql movement, which uses document databases rather than the more traditional, relational SQL databases. Not using a database at all seems to me taking the idea one step  further than NoSql. Myself, I think relational/SQL databases, NoSql document databases, and file system storage such as NoDb all have their places, according to the needs of the project. I think one size does not fit all and you should think deeply about the goals of your project and choose wisely.
 
 If you have questions or just want to say hello, join me in the cloudscribe gitter chat
 [![Join the chat at https://gitter.im/joeaudette/cloudscribe](https://badges.gitter.im/joeaudette/cloudscribe.svg)](https://gitter.im/joeaudette/cloudscribe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Rationale
 
-Not every project needs a database, there can be many benefits to not using one including performance, scalability, portability, lower cost, less installation steps, ease of site mogration and ease of making backup copies of the entire site/web application. It should even be possible to make a site/web application that runs from a thumb drive, or point in time backups that can run from CD/DVDROM.
+Not every project needs a database, there can be many benefits to not using one including performance, scalability, portability, lower cost, less installation steps, ease of site migration and ease of making backup copies of the entire site/web application. It should even be possible to make a site/web application that runs from a thumb drive, or point in time backups that can run from CD/DVDROM.
 
-In fact, for blogs, there has been kind of a trend towards using [Static Site Generators](https://www.staticgen.com/). Bby storing objects and content as json files it can get some of the same benefits and be used in a similar way to using a static site generator. For example you could host a localhost or intranet version of your site for producing and reviewing content, then when ready to publish you could commit the changes to a git repository and then do deployment from git to Azure for example, which would give you a highly scaleable site without the need or cost of a database and with a complete history of changes in git. 
+In fact, for blogs, there has been kind of a trend towards using [Static Site Generators](https://www.staticgen.com/). By storing objects and content as json files it can get some of the same benefits and be used in a similar way to using a static site generator. For example you could host a localhost or intranet version of your site for producing and reviewing content, then when ready to publish you could commit the changes to a git repository and then do deployment from git to Azure for example, which would give you a highly scaleable site without the need or cost of a database and with a complete history of changes in git. 
 
 Even more recently I've been hearing terms such as ["flat file cms"](https://www.google.com/#q=flat+file+cms), there is a PHP flat file cms named [grav](https://getgrav.org/) that is built by some Drupal developers, I heard about it on the [github podcast](https://soundcloud.com/githubcommunitycast/episode1) a while back. To me the term "flat file" is a bit of a misnomer, when I think of "flat file" I think of flat data structures like comma separated or pipe delimited, the data in what I call flat files is tabular in nature. Storing objects that have been serialized to json is not a flat structure and not what I would call a flat file. Perhaps "text file" would be a more accurate term, but whatever you call it, there are plenty of scenarios where this kind of storage is more than sufficient.
 
-This NoDb project was born as part of my [SimpleContent](https://github.com/joeaudette/cloudscribe.SimpleContent) project. That project started out as porting [Mads Kristensen's MiniBlog](https://github.com/madskristensen/MiniBlog) to ASP.NET Core. That project was already using xml file storage in the same format as [BlogEngine.NET](http://dotnetblogengine.net/) so I adopted the same format for blog posts. But then I also wanted to support simple cms pages in addition to blog posts and for that I decided to use json. Finally I refactored the code until I could use the same code for both xml posts and json pages, just plugigng in different serializers. From there I started using it for pretty much any types I need to store, and then I got the idea to make NoDb its own separate project and code repository here.
+This NoDb project was born as part of my [SimpleContent](https://github.com/joeaudette/cloudscribe.SimpleContent) project. That project started out as porting [Mads Kristensen's MiniBlog](https://github.com/madskristensen/MiniBlog) to ASP.NET Core. That project was already using xml file storage in the same format as [BlogEngine.NET](http://dotnetblogengine.net/) so I adopted the same format for blog posts. But then I also wanted to support simple cms pages in addition to blog posts and for that I decided to use json. Finally I refactored the code until I could use the same code for both xml posts and json pages, just plugging in different serializers. From there I started using it for pretty much any types I need to store, and then I got the idea to make NoDb its own separate project and code repository here.
 
 ## Who should use NoDb?
 
@@ -46,5 +46,11 @@ Files are stored on disk like this:
 The primary classes are BasicCommands<T>, BasicQueries<T>, have those injected into your own repository class and use them to implement retrievsal and storage of your serializable types. The best example code is in my [SimpleContent.Storage.NoDb](https://github.com/joeaudette/cloudscribe.SimpleContent/tree/master/src/cloudscribe.SimpleContent.Storage.NoDb) project, you casn see how everything is wired up in the example.WebApp in that repository.
 
 
-  
+## Installation
+
+Just add a dependency in your project.json file to get the nuget
+
+    "NoDb": "1.0.0-*"
+	
+Then Visual Studio 2015 should automatically resolve the dependency, but if needed you can run dnu restore from the command line in either the solution or project folder.
   

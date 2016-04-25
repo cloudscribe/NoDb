@@ -45,7 +45,6 @@ namespace NoDb
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
             
-            var serialized = serializer.Serialize(obj);
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
                 key, 
@@ -55,7 +54,8 @@ namespace NoDb
                 ).ConfigureAwait(false);
 
             if (File.Exists(pathToFile)) throw new InvalidOperationException("can't create file that already exists: " + pathToFile);
-            
+
+            var serialized = serializer.Serialize(obj);
             using (StreamWriter s = File.CreateText(pathToFile))
             {
                 await s.WriteAsync(serialized);
@@ -77,8 +77,7 @@ namespace NoDb
 
             cancellationToken.ThrowIfCancellationRequested();
             ThrowIfDisposed();
-
-            var serialized = serializer.Serialize(obj);
+            
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
                 key, 
@@ -90,6 +89,7 @@ namespace NoDb
 
             File.Delete(pathToFile); // delete the old version
 
+            var serialized = serializer.Serialize(obj);
             using (StreamWriter s = File.CreateText(pathToFile))
             {
                 await s.WriteAsync(serialized);

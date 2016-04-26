@@ -39,9 +39,11 @@ When architecting my projects I will always abstract the data access behind an i
 
 With NoDb it is very easy to store any class that is serializable to a string. The default StringSerializer uses NewtonSoft.Json, but if needed you can implement and plugin a custom serializer for your custom classes if the default serializer doesn't work for you.
 
-Files are stored on disk like this:
+By default, files are stored on disk like this:
 
     appRoot/[nodb_storage]/projects/[projectid]/[type]/[key].json
+	
+but if needed you can plugin your own custom StoragePathResolver for your type if you want to store things in a different location or using a different structure.
 
 The primary classes are [BasicCommands](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicCommands.cs) and [BasicQueries](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicQueries.cs). Have those injected into your own repository class and use them to implement retrieval and storage of your serializable types. The best example code is in my [SimpleContent.Storage.NoDb](https://github.com/joeaudette/cloudscribe.SimpleContent/tree/master/src/cloudscribe.SimpleContent.Storage.NoDb) project, you can see how everything is wired up in the example.WebApp in that repository.
 

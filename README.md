@@ -49,7 +49,7 @@ The primary classes are [BasicCommands](https://github.com/joeaudette/NoDb/blob/
 
 All the components of NoDb are loosley coupled so you can inject your own implementation to override what you want such as serialization or storage location. You can also inherit from BasicCommands and/or BasicQueries if you need to override any of the methods since they are virtual.
 
-Basic CRUD (Create, Retrieve, Update, Delete) commands and queries are provided but you can load all of the type with commands.GetAllAsync and then query that any way you like using Linq, so you are not limited to the provided queries.
+Basic CRUD (Create, Retrieve, Update, Delete) commands and queries are provided but you can load all of the type with queries.GetAllAsync and then query that any way you like using Linq, so you are not limited to the provided queries.
 
 Note that NoDb does NOT provide any caching. Use of caching is a good idea but should be higher up the stack than NoDb. Think of NoDb just like the real metal of a database, you don't have output caching on sql queries, you cache things higher up the stack. I recommend implement your own repository that internally uses NoDb commands and queries, then wrap that with a CachingRepository using the decorator pattern. Unfortunately the built in DI (dependency injection) system for ASP.NET Core does not provide the functionality to implement the decorator pattern but you can do it easily using Autofac or most other advanced DI containers.
 

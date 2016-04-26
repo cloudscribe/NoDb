@@ -45,6 +45,12 @@ Files are stored on disk like this:
 
 The primary classes are [BasicCommands](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicCommands.cs) and [BasicQueries](https://github.com/joeaudette/NoDb/blob/master/src/NoDb/BasicQueries.cs). Have those injected into your own repository class and use them to implement retrieval and storage of your serializable types. The best example code is in my [SimpleContent.Storage.NoDb](https://github.com/joeaudette/cloudscribe.SimpleContent/tree/master/src/cloudscribe.SimpleContent.Storage.NoDb) project, you can see how everything is wired up in the example.WebApp in that repository.
 
+All the components of NoDb are loosley coupled so you can inject your own implementation to override what you want such as serialization or storage location. You can also inherit from BasicCommands and/or BasicQueries if you need to override any of the methods since they are virtual.
+
+Basic CRUD (Create, Retrieve, Update, Delete) commands and queries are provided but you can load all of the type with commands.GetAllAsync and then query that any way you like using Linq, so you are not limited to the provided queries.
+
+Note that NoDb does NOT provide any caching. Use of caching is a good idea but should be higher up the stack than NoDb. Think of NoDb just like the real metal of a database, you don't have output caching on sql queries, you cache things higher up the stack. I recommend implement your own repository that internally uses NoDb commands and queries, then wrap that with a CachingRepository using the decorator pattern. Unfortunately the built in DI (dependency injection) system for ASP.NET Core does not provide the functionality to implement the decorator pattern but you can do it easily using Autofaq or most other advanced DI containers.
+
 
 ## Installation
 
@@ -53,4 +59,32 @@ Just add a dependency in your project.json file to get the nuget
     "NoDb": "1.0.0-*"
 	
 Then Visual Studio 2015 should automatically resolve the dependency, but if needed you can run dnu restore from the command line in either the solution or project folder.
+
+In Startup you then register services for any types that you want to persist with NoDb
+
+    // if you want to plugin a custom serializer or pathresolver for your type,
+	// register those before calling .AddNoDb<YourType>();
+    //services.AddScoped<NoDb.IStringSerializer<YourType>, YourTypeSerializer>();
+    //services.AddScoped<NoDb.IStoragePathResolver<YourType>, YourTypeStoragePathResolver>();
+	
+    services.AddNoDb<Page>();
+	services.AddNoDb<Post>();
+
+The above will register the BasicCommands and BasicQueries so you can take a constructor dependency wherever you need those injected, as seen in this snippet from my SimpleContent project [NoDbPageRepository](https://github.com/joeaudette/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/NoDbPageRepository.cs):
+
+    public class NoDbPageRepository : IPageRepository
+    {
+        public NoDbPageRepository(
+            IBasicCommands<Page> pageCommands,
+            IBasicQueries<Page> pageQueries,
+            ILogger<NoDbPageRepository> logger
+            )
+        {
+            commands = pageCommands;
+            query = pageQueries;
+            log = logger;
+        }
+		
+		....
+	}
   

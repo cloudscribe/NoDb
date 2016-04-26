@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-25
+// Last Modified:           2016-04-26
 // 
 
 /*
@@ -36,9 +36,9 @@ namespace NoDb
             log = logger;
         }
 
-        private IStringSerializer<T> serializer;
-        private IStoragePathResolver<T> pathResolver;
-        private ILogger log;
+        protected IStringSerializer<T> serializer;
+        protected IStoragePathResolver<T> pathResolver;
+        protected ILogger log;
         
         public virtual async Task<T> FetchAsync(
             string projectId,

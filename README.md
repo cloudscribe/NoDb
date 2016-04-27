@@ -29,7 +29,7 @@ The vast majority of sites on the internet get very little traffic. When you thi
 
 ## How I plan to use it
 
-I plan to use NoDb for most of my ASP.NET Core web projects at least in the begining unless I know in advance that the website is expected to get high volume transactions of any kind. 
+I plan to use NoDb for most of my ASP.NET Core web projects at least in the begining unless I know in advance that the website is expected to get high volume transactions of any kind. But even then I may use it during the prototype phase and only change to more robust storage once the data model is well defined.
 
 For a high traffic marketing or brochure site where the contents are not frequently changing, I will still use NoDb. 
 

@@ -12,27 +12,14 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    /// <summary>
-    /// T must be a class serializable to json
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IBasicCommands<T> : ICreateCommand<T>, IDisposable where T : class
+    public interface ICreateCommand<T> : IDisposable where T : class
     {
-        
-        Task<bool> UpdateAsync(
+        Task<bool> CreateAsync(
             string projectId,
             string key,
-            T obj, 
-            CancellationToken cancellationToken = default(CancellationToken)
-            );
-
-        Task<bool> DeleteAsync(
-            string projectId, 
-            string key, 
+            T obj,
             CancellationToken cancellationToken = default(CancellationToken)
             );
 
     }
-
-
 }

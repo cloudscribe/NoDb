@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-26
+// Last Modified:           2016-04-29
 // 
 
 /*
@@ -31,6 +31,9 @@ namespace NoDb
             IStringSerializer<T> serializer = null
             )
         {
+            if (logger == null) { throw new ArgumentNullException(nameof(logger)); }
+            if (pathResolver == null) { throw new ArgumentNullException(nameof(pathResolver)); }
+
             this.serializer = serializer ?? new StringSerializer<T>();
             this.pathResolver = pathResolver;
             log = logger;
@@ -82,7 +85,7 @@ namespace NoDb
         }
 
 
-        public virtual async Task<List<T>> GetAllAsync(
+        public virtual async Task<IEnumerable<T>> GetAllAsync(
             string projectId,
             CancellationToken cancellationToken = default(CancellationToken)
             )

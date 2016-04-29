@@ -5,34 +5,18 @@
 // Last Modified:           2016-04-29
 // 
 
-
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace NoDb
 {
-    /// <summary>
-    /// T must be a class serializable to json
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface IBasicCommands<T> : ICreateCommand<T>, IDisposable where T : class
+    public interface IGetAllQuery<T> : IDisposable where T : class
     {
-        
-        Task<bool> UpdateAsync(
+        Task<IEnumerable<T>> GetAllAsync(
             string projectId,
-            string key,
-            T obj, 
             CancellationToken cancellationToken = default(CancellationToken)
             );
-
-        Task<bool> DeleteAsync(
-            string projectId, 
-            string key, 
-            CancellationToken cancellationToken = default(CancellationToken)
-            );
-
     }
-
-
 }

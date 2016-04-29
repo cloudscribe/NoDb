@@ -16,6 +16,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb", "src\NoDb\NoDb.xproj
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb.Test", "test\NoDb.Test\NoDb.Test.xproj", "{C8724042-9A4A-47B5-BBA7-36BA5F67691A}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb.Helpers", "src\NoDb.Helpers\NoDb.Helpers.xproj", "{B66406A0-2CF6-45A1-880A-18173B5B7811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8724042-9A4A-47B5-BBA7-36BA5F67691A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66406A0-2CF6-45A1-880A-18173B5B7811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66406A0-2CF6-45A1-880A-18173B5B7811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66406A0-2CF6-45A1-880A-18173B5B7811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66406A0-2CF6-45A1-880A-18173B5B7811}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,5 +43,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{45C2E96A-7BC9-4454-96D4-19376BCBCE2F} = {6843DDE1-2DBF-4F12-8116-D235FC236BC2}
 		{C8724042-9A4A-47B5-BBA7-36BA5F67691A} = {39DCF4F6-927E-4EA6-8E30-739F75602485}
+		{B66406A0-2CF6-45A1-880A-18173B5B7811} = {6843DDE1-2DBF-4F12-8116-D235FC236BC2}
 	EndGlobalSection
 EndGlobal

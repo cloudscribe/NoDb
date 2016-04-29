@@ -2,19 +2,17 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-25
+// Last Modified:           2016-04-29
 // 
 
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public interface IBasicQueries<T> : IDisposable where T : class
+    public interface IBasicQueries<T> : IGetAllQuery<T>, IDisposable where T : class
     {
         Task<T> FetchAsync(
             string projectId,
@@ -26,12 +24,7 @@ namespace NoDb
             string projectId,
             CancellationToken cancellationToken = default(CancellationToken)
             );
-
-        Task<List<T>> GetAllAsync(
-            string projectId,
-            CancellationToken cancellationToken = default(CancellationToken)
-            );
-
+        
         //Task<IEnumerable<T>> GetPage(
         //    string projectId,
         //    int pageNumber,
@@ -48,4 +41,6 @@ namespace NoDb
         //    CancellationToken cancellationToken = default(CancellationToken)
         //    );
     }
+
+    
 }

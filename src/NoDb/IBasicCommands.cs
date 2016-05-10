@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-29
+// Last Modified:           2016-05-10
 // 
 
 
@@ -19,14 +19,14 @@ namespace NoDb
     public interface IBasicCommands<T> : ICreateCommand<T>, IDisposable where T : class
     {
         
-        Task<bool> UpdateAsync(
+        Task UpdateAsync(
             string projectId,
             string key,
             T obj, 
             CancellationToken cancellationToken = default(CancellationToken)
             );
 
-        Task<bool> DeleteAsync(
+        Task DeleteAsync(
             string projectId, 
             string key, 
             CancellationToken cancellationToken = default(CancellationToken)

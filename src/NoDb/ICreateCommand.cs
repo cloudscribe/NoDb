@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-29
+// Last Modified:           2016-05-10
 // 
 
 
@@ -14,7 +14,7 @@ namespace NoDb
 {
     public interface ICreateCommand<T> : IDisposable where T : class
     {
-        Task<bool> CreateAsync(
+        Task CreateAsync(
             string projectId,
             string key,
             T obj,

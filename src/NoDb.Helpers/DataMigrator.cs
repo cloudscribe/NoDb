@@ -48,12 +48,7 @@ namespace NoDb.Helpers
                 try
                 {
                     string key = keyResolver.GetKey(obj);
-                    var created = await targetCommand.CreateAsync(destinationProjectId, key, obj).ConfigureAwait(false);
-                    if (!created)
-                    {
-                        log.LogError("failed to create object with key " + key);
-                        noErrors = false;
-                    }
+                    await targetCommand.CreateAsync(destinationProjectId, key, obj).ConfigureAwait(false);
                 }
                 catch(Exception ex)
                 {

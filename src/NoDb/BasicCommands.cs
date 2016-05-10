@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-29
+// Last Modified:           2016-05-10
 // 
 
 
@@ -34,7 +34,7 @@ namespace NoDb
         protected IStoragePathResolver<T> pathResolver;
         protected ILogger log;
         
-        public virtual async Task<bool> CreateAsync(
+        public virtual async Task CreateAsync(
             string projectId,
             string key,
             T obj, 
@@ -64,10 +64,10 @@ namespace NoDb
                 await s.WriteAsync(serialized);
             }
             
-            return true;
+            
         }
 
-        public virtual async Task<bool> UpdateAsync(
+        public virtual async Task UpdateAsync(
             string projectId,
             string key,
             T obj,
@@ -98,10 +98,10 @@ namespace NoDb
                 await s.WriteAsync(serialized);
             }
 
-            return true;
+            
         }
 
-        public virtual async Task<bool> DeleteAsync(
+        public virtual async Task DeleteAsync(
             string projectId,
             string key,
             CancellationToken cancellationToken = default(CancellationToken)
@@ -119,12 +119,11 @@ namespace NoDb
                 serializer.ExpectedFileExtension
                 ).ConfigureAwait(false);
 
-            if (!File.Exists(pathToFile)) return false;
+            if (!File.Exists(pathToFile)) throw new InvalidOperationException("can't delete item that does not exist: " + pathToFile);
 
             File.Delete(pathToFile);
 
-            return true;
-
+            
         }
         
         private bool _disposed;

@@ -5,7 +5,7 @@
 // Last Modified:           2016-04-29
 // 
 
-namespace NoDb.Helpers
+namespace NoDb
 {
     public interface IKeyResolver<T> where T : class
     {

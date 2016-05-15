@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-29
+// Last Modified:           2016-05-15
 // 
 
 /*
@@ -28,13 +28,14 @@ namespace NoDb
         public BasicQueries(
             ILogger<BasicQueries<T>> logger,
             IStoragePathResolver<T> pathResolver,
-            IStringSerializer<T> serializer = null
+            IStringSerializer<T> serializer
             )
         {
             if (logger == null) { throw new ArgumentNullException(nameof(logger)); }
+            if (serializer == null) { throw new ArgumentNullException(nameof(serializer)); }
             if (pathResolver == null) { throw new ArgumentNullException(nameof(pathResolver)); }
 
-            this.serializer = serializer ?? new StringSerializer<T>();
+            this.serializer = serializer;
             this.pathResolver = pathResolver;
             log = logger;
         }

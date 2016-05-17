@@ -2,23 +2,24 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-23
+// Last Modified:           2016-05-17
 // 
 
-using Microsoft.Extensions.PlatformAbstractions;
+
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 
 namespace NoDb
 {
     public class DefaultStoragePathOptionsResolver : IStoragePathOptionsResolver
     {
         public DefaultStoragePathOptionsResolver(
-            IApplicationEnvironment appEnv)
+            IHostingEnvironment appEnv)
         {
             env = appEnv;
         }
 
-        private IApplicationEnvironment env;
+        private IHostingEnvironment env;
 
         public Task<StoragePathOptions> Resolve(string projectId)
         {
@@ -28,7 +29,7 @@ namespace NoDb
             //}
 
             var result = new StoragePathOptions();
-            result.AppRootFolderPath = env.ApplicationBasePath;
+            result.AppRootFolderPath = env.ContentRootPath;
             //result.ProjectIdFolderName = projectId;
 
             return Task.FromResult(result);

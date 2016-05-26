@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-04-25
+// Last Modified:           2016-05-26
 // 
 
 
@@ -63,11 +63,7 @@ namespace NoDb
                 Directory.CreateDirectory(projectsFolderPath);
             }
 
-            var projectIdFolderPath = pathOptions.AppRootFolderPath
-                + pathOptions.BaseFolderVPath.Replace("/", pathOptions.FolderSeparator)
-                + pathOptions.FolderSeparator
-                + pathOptions.ProjectsFolderName
-                + pathOptions.FolderSeparator
+            var projectIdFolderPath = projectsFolderPath
                 + projectId
                 + pathOptions.FolderSeparator
                 ;
@@ -79,13 +75,7 @@ namespace NoDb
 
             var type = typeof(TObject).Name.ToLowerInvariant();
 
-            var typeFolderPath = pathOptions.AppRootFolderPath
-                + pathOptions.BaseFolderVPath.Replace("/", pathOptions.FolderSeparator)
-                + pathOptions.FolderSeparator
-                + pathOptions.ProjectsFolderName
-                + pathOptions.FolderSeparator
-                + projectId
-                + pathOptions.FolderSeparator
+            var typeFolderPath = projectIdFolderPath
                 + type.ToLowerInvariant().Trim()
                 + pathOptions.FolderSeparator
                 ;

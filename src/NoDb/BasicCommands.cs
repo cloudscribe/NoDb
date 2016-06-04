@@ -90,8 +90,12 @@ namespace NoDb
                 false).ConfigureAwait(false);
 
             if (!File.Exists(pathToFile)) throw new InvalidOperationException("can't update file that doesn't exist: " + pathToFile);
-
+            //TODO: if instead of deleting the existing file
+            // we just replace its contents then it opens the possibility
+            // for custom queries based on file creation and last modified dates
+            // whereas by deleting the file we lose the original creation date
             File.Delete(pathToFile); // delete the old version
+            
 
             var serialized = serializer.Serialize(obj);
             using (StreamWriter s = File.CreateText(pathToFile))

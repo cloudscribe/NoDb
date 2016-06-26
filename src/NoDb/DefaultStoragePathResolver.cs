@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-05-26
+// Last Modified:           2016-06-26
 // 
 
 
@@ -51,22 +51,25 @@ namespace NoDb
                 Directory.CreateDirectory(firstFolderPath);
             }
 
-            var projectsFolderPath = pathOptions.AppRootFolderPath
-                + pathOptions.BaseFolderVPath.Replace("/", pathOptions.FolderSeparator)
-                + pathOptions.FolderSeparator
-                + pathOptions.ProjectsFolderName
-                + pathOptions.FolderSeparator
-                ;
+            //var projectsFolderPath = pathOptions.AppRootFolderPath
+            //    + pathOptions.BaseFolderVPath.Replace("/", pathOptions.FolderSeparator)
+            //    + pathOptions.FolderSeparator
+            //    + pathOptions.ProjectsFolderName
+            //    + pathOptions.FolderSeparator
+            //    ;
+
+            var projectsFolderPath = Path.Combine(firstFolderPath, pathOptions.ProjectsFolderName);
 
             if (ensureFoldersExist && !Directory.Exists(projectsFolderPath))
             {
                 Directory.CreateDirectory(projectsFolderPath);
             }
 
-            var projectIdFolderPath = projectsFolderPath
-                + projectId
-                + pathOptions.FolderSeparator
-                ;
+            //var projectIdFolderPath = projectsFolderPath
+            //    + projectId
+            //    + pathOptions.FolderSeparator
+            //    ;
+            var projectIdFolderPath = Path.Combine(projectsFolderPath, projectId);
 
             if (ensureFoldersExist && !Directory.Exists(projectIdFolderPath))
             {
@@ -75,10 +78,12 @@ namespace NoDb
 
             var type = typeof(TObject).Name.ToLowerInvariant();
 
-            var typeFolderPath = projectIdFolderPath
-                + type.ToLowerInvariant().Trim()
-                + pathOptions.FolderSeparator
-                ;
+            //var typeFolderPath = projectIdFolderPath
+            //    + type.ToLowerInvariant().Trim()
+            //    + pathOptions.FolderSeparator
+            //    ;
+
+            var typeFolderPath = Path.Combine(projectIdFolderPath, type.ToLowerInvariant().Trim());
 
             if (ensureFoldersExist && !Directory.Exists(typeFolderPath))
             {
@@ -87,10 +92,10 @@ namespace NoDb
 
             if (string.IsNullOrWhiteSpace(key))
             {
-                return typeFolderPath;
+                return typeFolderPath + pathOptions.FolderSeparator;
             }
 
-            return typeFolderPath + key + fileExtension;
+            return Path.Combine(typeFolderPath, key + fileExtension);
         }
 
 
@@ -117,7 +122,12 @@ namespace NoDb
             // in the default implementation we are not doing anything based on the object properties
             // but some custom logic could be plugged in here by implementing the interface yourself
 
-            return await ResolvePath(projectId, key, fileExtension, ensureFoldersExist, cancellationToken).ConfigureAwait(false);
+            return await ResolvePath(
+                projectId, 
+                key, 
+                fileExtension, 
+                ensureFoldersExist, 
+                cancellationToken).ConfigureAwait(false);
 
         }
     }

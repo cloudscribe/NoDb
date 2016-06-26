@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-24
-// Last Modified:           2016-04-24
+// Last Modified:           2016-06-07
 // 
 
 
@@ -25,7 +25,10 @@ namespace NoDb
             return JsonConvert.SerializeObject(
                 obj,
                 Formatting.None,
-                new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Include }
+                new JsonSerializerSettings {
+                    DefaultValueHandling = DefaultValueHandling.Include
+                    //, DateTimeZoneHandling = DateTimeZoneHandling.Utc  
+                }
                 );
         }
 
@@ -36,7 +39,12 @@ namespace NoDb
             // so we have to pass it in for that scenario, ie it is used in PostXmlSerializer
 
             if (string.IsNullOrWhiteSpace(serializedObject)) throw new ArgumentException("must pass in a string");
-            return JsonConvert.DeserializeObject<T>(serializedObject);
+            var settings = new JsonSerializerSettings
+            {
+                DefaultValueHandling = DefaultValueHandling.Include
+                //,DateTimeZoneHandling = DateTimeZoneHandling.Utc
+            };
+            return JsonConvert.DeserializeObject<T>(serializedObject, settings);
         }
 
 

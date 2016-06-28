@@ -1,5 +1,5 @@
 ﻿{
-    "version": "1.0.0-beta3",
+    "version": "1.0.0",
     "description": "helper classes to facilitate data migration to and from NoDb storage",
     "authors": [ "Joe Audette" ],
     "packOptions": {
@@ -14,15 +14,18 @@
     },
 
     "dependencies": {
-        "NETStandard.Library": "1.5.0-rc2-24027",
+        "NETStandard.Library": "1.5.0-*",
         "NoDb": "1.0.0-*",
-        "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
-        "Microsoft.Extensions.Options":"1.0.0-rc2-final"
+        "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-*",
+        "Microsoft.Extensions.Options":"1.0.0-*"
 
     },
 
     "frameworks": {
-        "netstandard1.5": {
+        "net46": {},
+        "net452": {},
+        "net451": {},
+        "netstandard1.6": {
             "imports": "dnxcore50"
         }
     }

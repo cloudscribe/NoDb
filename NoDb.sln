@@ -1,22 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFD90333-EB0D-4DD5-987D-E4DCAA75E6B1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E89D7691-5898-429E-8AC5-01F0DB957C2F}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb", "src\NoDb\NoDb.xproj", "{FDA39B09-C87D-4776-98FE-EA592A0B3031}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb.Helpers", "src\NoDb.Helpers\NoDb.Helpers.xproj", "{0322E389-BEC3-47E5-B739-679BBC8E4D41}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DECE9B68-EF3D-4388-8AE4-6CF46E4C734D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NoDb.Test", "test\NoDb.Test\NoDb.Test.xproj", "{8D1ABFC5-66C9-48AC-B835-07C664A75780}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoDb", "src\NoDb\NoDb.csproj", "{FDA39B09-C87D-4776-98FE-EA592A0B3031}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoDb.Helpers", "src\NoDb.Helpers\NoDb.Helpers.csproj", "{0322E389-BEC3-47E5-B739-679BBC8E4D41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoDb.Test", "test\NoDb.Test\NoDb.Test.csproj", "{8D1ABFC5-66C9-48AC-B835-07C664A75780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,6 +5,12 @@ I named the project NoDb in a nod to the NoSql movement, which uses document dat
 If you have questions or just want to say hello, join me in the cloudscribe gitter chat
 [![Join the chat at https://gitter.im/joeaudette/cloudscribe](https://badges.gitter.im/joeaudette/cloudscribe.svg)](https://gitter.im/joeaudette/cloudscribe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### Build Status
+
+| Windows  | Linux/Mac |
+| ------------- | ------------- |
+| [![Build status](https://ci.appveyor.com/api/projects/status/sda05djph49420d0?svg=true)](https://ci.appveyor.com/project/joeaudette/nodb)  | [![Build Status](https://travis-ci.org/joeaudette/NoDb.svg?branch=master)](https://travis-ci.org/joeaudette/NoDb)  |
+
 ## Rationale
 
 Not every project needs a database, there can be many benefits to not using one including performance, scalability, portability, lower cost, less installation steps, ease of site migration and ease of making backup copies of the entire site/web application. It should even be possible to make a site/web application that runs from a thumb drive, or point in time backups that can run from CD/DVDROM.

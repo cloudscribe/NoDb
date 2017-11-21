@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-05-15
+// Last Modified:           2017-11-21
 // 
 
 /*
@@ -108,7 +108,15 @@ namespace NoDb
             {
                 var key = Path.GetFileNameWithoutExtension(file);
                 var obj = LoadObject(file, key);
-                list.Add(obj);
+                if(obj != null)
+                {
+                    list.Add(obj);
+                }
+                else
+                {
+                    log.LogWarning($"failed to deserialize {file}, result was null");
+                }
+                
             }
 
             return list;

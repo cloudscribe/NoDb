@@ -9,7 +9,7 @@ If you have questions or just want to say hello, join me in the cloudscribe gitt
 
 | Windows  | Linux/Mac |
 | ------------- | ------------- |
-| [![Build status](https://ci.appveyor.com/api/projects/status/sda05djph49420d0?svg=true)](https://ci.appveyor.com/project/joeaudette/nodb)  | [![Build Status](https://travis-ci.org/joeaudette/NoDb.svg?branch=master)](https://travis-ci.org/joeaudette/NoDb)  |
+| [![Build status](https://ci.appveyor.com/api/projects/status/sda05djph49420d0?svg=true)](https://ci.appveyor.com/project/joeaudette/nodb)  | [![Build Status](https://travis-ci.org/cloudscribe/NoDb.svg?branch=master)](https://travis-ci.org/cloudscribe/NoDb)  |
 
 ## Rationale
 

@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2017-11-21
+// Last Modified:           2018-10-10
 // 
 
 /*
@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public class BasicQueries<T> : IBasicQueries<T> where T : class
+    public class BasicQueries<T> : IBasicQueries<T>, IBasicQueriesSingleton<T> where T : class
     {
         public BasicQueries(
             ILogger<BasicQueries<T>> logger,
@@ -54,7 +54,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("key must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
 
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
@@ -76,7 +75,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(projectId)) throw new ArgumentException("projectId must be provided");
            
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
 
             var pathToFolder = await pathResolver.ResolvePath(projectId).ConfigureAwait(false);
             if (!Directory.Exists(pathToFolder)) return 0;
@@ -94,7 +92,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(projectId)) throw new ArgumentException("projectId must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
 
             var pathToFolder = await pathResolver.ResolvePath(projectId).ConfigureAwait(false);
 
@@ -133,26 +130,7 @@ namespace NoDb
                 return result;
             }
         }
-
-        private bool _disposed;
-
-        protected void ThrowIfDisposed()
-        {
-            if (_disposed)
-            {
-                throw new ObjectDisposedException(GetType().Name);
-            }
-        }
-
-        /// <summary>
-        /// Dispose the store
-        /// </summary>
-        public void Dispose()
-        {
-            _disposed = true;
-        }
-
-
+        
 
     }
 }

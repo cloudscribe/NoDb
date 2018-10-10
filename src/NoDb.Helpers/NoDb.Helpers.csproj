@@ -2,22 +2,15 @@
 
   <PropertyGroup>
     <Description>helper classes to facilitate data migration to and from NoDb storage</Description>
-    <VersionPrefix>1.1.2</VersionPrefix>
+    <VersionPrefix>1.2.0</VersionPrefix>
     <Authors>Joe Audette</Authors>
     <TargetFrameworks>netstandard1.6</TargetFrameworks>
-    <AssemblyName>NoDb.Helpers</AssemblyName>
-    <PackageId>NoDb.Helpers</PackageId>
     <PackageTags>storage;json</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/joeaudette/cloudscribe/master/cloudscribe-icon-32.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/joeaudette/NoDb</PackageProjectUrl>
     <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <!--
-    <NetStandardImplicitPackageVersion>1.6.*</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.6' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    -->
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RepositoryUrl>https://github.com/cloudscribe/NoDb.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-23
-// Last Modified:           2016-05-10
+// Last Modified:           2018-10-10
 // 
 
 
@@ -12,11 +12,16 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
+    public interface IBasicCommandsSingleton<T> : IBasicCommands<T> where T : class
+    {
+
+    }
+
     /// <summary>
     /// T must be a class serializable to json
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IBasicCommands<T> : ICreateCommand<T>, IDisposable where T : class
+    public interface IBasicCommands<T> : ICreateCommand<T> where T : class
     {
         
         Task UpdateAsync(

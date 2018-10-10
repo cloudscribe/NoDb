@@ -58,7 +58,7 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("key must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
+            
 
             //override logic to look across site folders
 
@@ -94,7 +94,7 @@ namespace NoDb
             )
         {
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
+           
 
             //override logic to look across folders
             var count = 0;
@@ -129,8 +129,7 @@ namespace NoDb
             )
         {
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
-
+           
             var pathToFolder = await pathResolver.ResolvePath(projectId).ConfigureAwait(false);
 
             var list = new List<T>();

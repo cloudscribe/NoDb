@@ -2,7 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 // Author:                  Joe Audette
 // Created:                 2016-04-24
-// Last Modified:           2016-05-15
+// Last Modified:           2018-10-10
 // 
 
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +20,9 @@ namespace NoDb
             services.TryAddScoped<IStringSerializer<T>, StringSerializer<T>>();
             services.TryAddScoped<IStoragePathOptionsResolver, DefaultStoragePathOptionsResolver>();
             services.TryAddScoped<IStoragePathResolver<T>, DefaultStoragePathResolver<T>>();
+
+            services.TryAddSingleton<IBasicCommandsSingleton<T>, BasicCommands<T>>();
+            services.TryAddSingleton<IBasicQueriesSingleton<T>, BasicQueries<T>>();
 
             return services;
         }

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public class BasicCommands<T> : IBasicCommands<T> where T : class
+    public class BasicCommands<T> : IBasicCommands<T>, IBasicCommandsSingleton<T> where T : class
     {
         public BasicCommands(
             ILogger<BasicCommands<T>> logger,
@@ -47,7 +47,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("key must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
             
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
@@ -80,7 +79,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("key must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
             
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
@@ -116,7 +114,6 @@ namespace NoDb
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("key must be provided");
 
             cancellationToken.ThrowIfCancellationRequested();
-            ThrowIfDisposed();
             
             var pathToFile = await pathResolver.ResolvePath(
                 projectId, 
@@ -130,25 +127,6 @@ namespace NoDb
 
             
         }
-        
-        private bool _disposed;
-
-        protected void ThrowIfDisposed()
-        {
-            if (_disposed)
-            {
-                throw new ObjectDisposedException(GetType().Name);
-            }
-        }
-
-        /// <summary>
-        /// Dispose the store
-        /// </summary>
-        public void Dispose()
-        {
-            _disposed = true;
-        }
-
         
 
     }

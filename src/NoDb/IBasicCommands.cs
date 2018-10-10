@@ -12,10 +12,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public interface IBasicCommandsSingleton<T> : IBasicCommands<T> where T : class
-    {
-
-    }
+    
 
     /// <summary>
     /// T must be a class serializable to json

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>no-database file system storage for .net core</Description>
-    <VersionPrefix>1.2.0</VersionPrefix>
+    <VersionPrefix>1.2.1</VersionPrefix>
     <Authors>Joe Audette</Authors>
     <TargetFrameworks>netstandard1.6</TargetFrameworks>
     <PackageTags>storage;json</PackageTags>

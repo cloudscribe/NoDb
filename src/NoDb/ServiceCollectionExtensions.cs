@@ -12,7 +12,12 @@ namespace NoDb
 {
     public static class ServiceCollectionExtensions
     {
-
+        /// <summary>
+        /// adds Scoped Lifetime services
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static IServiceCollection AddNoDb<T>(this IServiceCollection services) where T : class
         {
             services.TryAddScoped<IBasicCommands<T>, BasicCommands<T>>();
@@ -20,9 +25,23 @@ namespace NoDb
             services.TryAddScoped<IStringSerializer<T>, StringSerializer<T>>();
             services.TryAddScoped<IStoragePathOptionsResolver, DefaultStoragePathOptionsResolver>();
             services.TryAddScoped<IStoragePathResolver<T>, DefaultStoragePathResolver<T>>();
+            
+            return services;
+        }
 
-            services.TryAddSingleton<IBasicCommandsSingleton<T>, BasicCommands<T>>();
-            services.TryAddSingleton<IBasicQueriesSingleton<T>, BasicQueries<T>>();
+        /// <summary>
+        /// adds Singleton Lifetime services, do not use both scoped and singleton, use one or the other
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddNoDbSingleton<T>(this IServiceCollection services) where T : class
+        {
+            services.TryAddSingleton<IBasicCommands<T>, BasicCommands<T>>();
+            services.TryAddSingleton<IBasicQueries<T>, BasicQueries<T>>();
+            services.TryAddSingleton<IStringSerializer<T>, StringSerializer<T>>();
+            services.TryAddSingleton<IStoragePathOptionsResolver, DefaultStoragePathOptionsResolver>();
+            services.TryAddSingleton<IStoragePathResolver<T>, DefaultStoragePathResolver<T>>();
 
             return services;
         }

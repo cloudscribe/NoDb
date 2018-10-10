@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public class BasicCommands<T> : IBasicCommands<T>, IBasicCommandsSingleton<T> where T : class
+    public class BasicCommands<T> : IBasicCommands<T> where T : class
     {
         public BasicCommands(
             ILogger<BasicCommands<T>> logger,

@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public class BasicQueries<T> : IBasicQueries<T>, IBasicQueriesSingleton<T> where T : class
+    public class BasicQueries<T> : IBasicQueries<T> where T : class
     {
         public BasicQueries(
             ILogger<BasicQueries<T>> logger,

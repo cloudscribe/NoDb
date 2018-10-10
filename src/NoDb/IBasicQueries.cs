@@ -11,10 +11,7 @@ using System.Threading.Tasks;
 
 namespace NoDb
 {
-    public interface IBasicQueriesSingleton<T> : IBasicQueries<T> where T : class
-    {
-
-    }
+    
 
     public interface IBasicQueries<T> : IGetAllQuery<T> where T : class
     {

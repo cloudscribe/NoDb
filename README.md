@@ -39,7 +39,7 @@ I plan to use NoDb for most of my ASP.NET Core web projects at least in the begi
 
 For a high traffic marketing or brochure site where the contents are not frequently changing, I will still use NoDb. 
 
-When architecting my projects I will always abstract the data access behind an interface implemented by a repository, that way I can implement the initial repository quick and easy with NoDb and later if the project does require a database, I can re-implement the repository using Entity Framework or MongoDb or DocumentDb. I can easily write code to import the data from the files and I can easily plugin a different repository implementation using dependency injection.
+When architecting my projects I will always abstract the data access behind a interfaces and implementations of interfaces, that way I can implement the initial implementations quick and easy with NoDb and later if the project does require a database, I can re-implement them using Entity Framework or MongoDb or DocumentDb. I can easily write code to import the data from the files and I can easily plugin a different implementations using dependency injection.
 
 Databases have always been a bit of a friction point for unit testing. People often do elaborate mocking of data in order to test without the database because it can be dodgy to rely on a database connection during testing and tests may fail due to networking issues. When the data is just files stored on disk it can be a lot more friendly for testing even against the actual data in the system. Even if you use a database for production NoDb could be useful for mocking data for unit testing.
 

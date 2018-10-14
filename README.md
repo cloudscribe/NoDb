@@ -66,11 +66,11 @@ Note that NoDb does NOT provide any caching. Use of caching is a good idea but s
 
 ## Installation
 
-Just add a dependency in your project.json file to get the nuget
+Just add a dependency in your .csproj file to get the nuget
 
-    "NoDb": "1.0.0-*"
+    <PackageReference Include="NoDb" Version="1.2.1" />
 	
-Then Visual Studio 2015 should automatically resolve the dependency, but if needed you can run dnu restore from the command line in either the solution or project folder.
+Then Visual Studio 2017 should automatically resolve the dependency, but if needed you can run dotnet restore from the command line in either the solution or project folder. You should use whatever the newest versiion is.
 
 In Startup you then register services for any types that you want to persist with NoDb
 

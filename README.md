@@ -82,21 +82,7 @@ In Startup you then register services for any types that you want to persist wit
     services.AddNoDb<Page>();
 	services.AddNoDb<Post>();
 
-The above will register the BasicCommands and BasicQueries so you can take a constructor dependency wherever you need those injected, as seen in this snippet from my SimpleContent project [NoDbPageRepository](https://github.com/joeaudette/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/NoDbPageRepository.cs):
+The above will register the BasicCommands and BasicQueries so you can take a constructor dependency wherever you need those injected, as seen in my SimpleContent project [PageQueries](https://github.com/cloudscribe/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/PageQueries.cs), [PageCommands](https://github.com/cloudscribe/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/PageCommands.cs), [PostQueries](https://github.com/cloudscribe/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/PostQueries.cs), and [PostCommands](https://github.com/cloudscribe/cloudscribe.SimpleContent/blob/master/src/cloudscribe.SimpleContent.Storage.NoDb/PostCommands.cs)
 
-    public class NoDbPageRepository : IPageRepository
-    {
-        public NoDbPageRepository(
-            IBasicCommands<Page> pageCommands,
-            IBasicQueries<Page> pageQueries,
-            ILogger<NoDbPageRepository> logger
-            )
-        {
-            commands = pageCommands;
-            query = pageQueries;
-            log = logger;
-        }
-		
-		....
-	}
+    
   

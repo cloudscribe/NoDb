@@ -2,8 +2,7 @@
 
 I named the project NoDb in a nod to the NoSql movement, which uses document databases rather than the more traditional, relational SQL databases. Not using a database at all seems to me taking the idea one step  further than NoSql. Myself, I think relational/SQL databases, NoSql document databases, and file system storage such as NoDb all have their places, according to the needs of the project. I think one size does not fit all and you should think deeply about the actual needs and requirements of your project in order to choose wisely. I recommend abstracting the data access in a way that you can easily plug in different storage later if needs change.
 
-If you have questions or just want to say hello, join me in the cloudscribe gitter chat
-[![Join the chat at https://gitter.im/joeaudette/cloudscribe](https://badges.gitter.im/joeaudette/cloudscribe.svg)](https://gitter.im/joeaudette/cloudscribe?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+If you have questions please visit our community forum https://www.cloudscribe.com/forum
 
 ### Build Status
 
